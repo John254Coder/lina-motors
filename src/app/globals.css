@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ======================================================
+   LINA MOTORS - BRAND THEME
+   Modern, Sleek, Minimal, Professional
+====================================================== */
+@theme {
+  /* Primary Brand Colors */
+  --color-primary: #2C4292;
+  --color-primary-light: #4a6bb8;
+  --color-primary-dark: #1e3a8a;
+
+  /* Backgrounds */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-soft: #eaf2f8;
+
+  /* Text Colors */
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+
+  /* Borders */
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+  --color-neutral: #94a3b8;
+
+  /* Interactive */
+  --color-hover-bg: #f9fafb;
+  --color-active-bg: #f3f4f6;
+
+  /* Accent */
+  --color-logo-red: #c62828;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05),
+                 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+                       0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+               0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Spacing */
+  --spacing-section: 5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ======================================================
+   BASE LAYER
+====================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 { font-size: 2.5rem; font-weight: 700; }
+  h2 { font-size: 2rem; font-weight: 700; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  a {
+    color: var(--color-primary);
+    transition: color 200ms ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-light);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ======================================================
+   COMPONENTS LAYER
+====================================================== */
+@layer components {
+  .section {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+  }
+
+  .section-light { background-color: var(--color-surface); }
+  .section-soft { background-color: var(--color-soft); }
+
+  /* Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 0.75rem; /* border-xl */
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: none;
+  line-height: 1.5;
+  transform-origin: center;
+}
+
+/* Primary Button - Brand CTA */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+  transform: scale(1.05);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+
+  /* Secondary Button */
+  .btn-secondary {
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  /* Light Button */
+  .btn-light {
+    background-color: var(--color-primary-light);
+    color: white;
+  }
+
+  .btn-light:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  /* Card */
+  .card {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-card);
+    transition: all 300ms ease;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-border-light);
+  }
+
+  /* Inputs */
+  .input-base {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    transition: all 200ms ease;
+  }
+
+  .input-base:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(44, 66, 146, 0.1);
+  }
+}
+
+/* ======================================================
+   UTILITIES LAYER
+====================================================== */
+@layer utilities {
+  .text-muted { color: var(--color-text-muted); }
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-light { color: var(--color-text-light); }
+  .bg-hover { background-color: var(--color-hover-bg); }
+  .text-high-contrast { color: var(--color-text-primary); }
 }

@@ -1,35 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Lina Motor Assessors & Valuers - Professional Motor Assessment Services",
   description: "Professional motor service provider in the Insurance risk management and financial sector within the Kenyan business landscape. Established 2006.",
   keywords: "motor assessment, vehicle valuation, insurance claims, Kenya, motor assessors, vehicle inspection",
+  authors: [{ name: "Lina Motors" }],
+  openGraph: {
+    title: "Lina Motor Assessors & Valuers",
+    description: "Professional motor assessment services in Kenya since 2006",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.className} antialiased`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
