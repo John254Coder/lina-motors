@@ -50,6 +50,18 @@
    BASE LAYER
 ====================================================== */
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -105,44 +117,46 @@
   .section {
     padding-top: var(--spacing-section);
     padding-bottom: var(--spacing-section);
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .section-light { background-color: var(--color-surface); }
   .section-soft { background-color: var(--color-soft); }
 
   /* Button Base */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  border-radius: 0.75rem; /* border-xl */
-  transition: all 200ms ease;
-  cursor: pointer;
-  border: none;
-  line-height: 1.5;
-  transform-origin: center;
-}
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: all 200ms ease;
+    cursor: pointer;
+    border: none;
+    line-height: 1.5;
+    transform-origin: center;
+    will-change: transform;
+  }
 
-/* Primary Button - Brand CTA */
-.btn-primary {
-  background-color: var(--color-primary);
-  color: white;
-  box-shadow: var(--shadow-xs);
-}
+  /* Primary Button */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-xs);
+  }
 
-.btn-primary:hover {
-  background-color: var(--color-primary-dark);
-  box-shadow: var(--shadow-md);
-  transform: scale(1.05);
-}
+  .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.05);
+  }
 
-.btn-primary:active {
-  transform: scale(0.95);
-}
-
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
 
   /* Secondary Button */
   .btn-secondary {
@@ -174,6 +188,8 @@
     padding: 2rem;
     box-shadow: var(--shadow-card);
     transition: all 300ms ease;
+    will-change: transform;
+    max-width: 100%;
   }
 
   .card:hover {
@@ -184,6 +200,7 @@
   /* Inputs */
   .input-base {
     width: 100%;
+    max-width: 100%;
     padding: 0.75rem 1rem;
     border-radius: 0.75rem;
     border: 1px solid var(--color-border);
@@ -206,4 +223,10 @@
   .text-light { color: var(--color-text-light); }
   .bg-hover { background-color: var(--color-hover-bg); }
   .text-high-contrast { color: var(--color-text-primary); }
+
+  /* Explicit horizontal scroll killer */
+  .no-x-scroll {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
 }
