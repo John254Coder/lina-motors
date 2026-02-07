@@ -3,12 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Shield,
+  Wrench,
   TrendingUp,
   CheckCircle,
-  Clock,
-  Users,
-  Award,
 } from "lucide-react";
 
 interface ServiceItem {
@@ -20,46 +17,25 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    title: "Motor Vehicle Assessment",
+    title: "Accident Assessment",
     description:
-      "Comprehensive vehicle evaluations for insurance claims, providing accurate damage assessments and repair cost estimates.",
-    icon: <Shield size={32} className="text-accent" />,
-    href: "/services/assessment",
+      "Professional and independent assessment of accident-damaged vehicles to establish accurate repair costs and support fast, effective insurance claim resolution.",
+    icon: <Wrench size={32} className="text-accent" />,
+    href: "/services/accident-assessment",
   },
   {
     title: "Vehicle Valuation",
     description:
-      "Professional market value assessments for vehicles, ensuring fair and accurate valuations for various purposes.",
+      "Accurate, independent motor vehicle valuations based on condition, usage, and prevailing market factors for insurance, sale, purchase, and financial purposes.",
     icon: <TrendingUp size={32} className="text-accent" />,
-    href: "/services/valuation",
+    href: "/services/vehicle-valuation",
   },
   {
-    title: "Insurance Claims",
+    title: "Quality Assurance",
     description:
-      "Expert handling of insurance claims with detailed documentation and efficient processing for quick resolutions.",
+      "Ensuring repair quality, professional standards, and service consistency through independent inspection and continuous performance review.",
     icon: <CheckCircle size={32} className="text-accent" />,
-    href: "/services/claims",
-  },
-  {
-    title: "Pre-Purchase Inspection",
-    description:
-      "Thorough vehicle inspections before purchase, identifying potential issues and ensuring informed buying decisions.",
-    icon: <Clock size={32} className="text-accent" />,
-    href: "/services/inspection",
-  },
-  {
-    title: "Fleet Management",
-    description:
-      "Comprehensive fleet assessment and management services for businesses, ensuring optimal vehicle performance and value.",
-    icon: <Users size={32} className="text-accent" />,
-    href: "/services/fleet",
-  },
-  {
-    title: "Expert Consultation",
-    description:
-      "Professional advice and consultation on all motor-related matters, backed by years of industry expertise.",
-    icon: <Award size={32} className="text-accent" />,
-    href: "/services/consultation",
+    href: "/services/quality-assurance",
   },
 ];
 

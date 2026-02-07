@@ -51,28 +51,22 @@ export default function Navbar() {
 
   const services = [
     {
-      name: "Motor Assessments",
-      description: "Professional vehicle damage assessment and evaluation",
-      icon: "📋",
-      href: "/services/assessments",
+      name: "Accident Assessment",
+      description: "Professional and independent accident assessment services",
+      icon: "🔧",
+      href: "/services/accident-assessment",
     },
     {
       name: "Vehicle Valuation",
       description: "Accurate market value appraisal for all vehicles",
       icon: "💰",
-      href: "/services/valuation",
+      href: "/services/vehicle-valuation",
     },
     {
-      name: "Insurance Claims",
-      description: "Expert support for motor insurance claims",
-      icon: "🛡️",
-      href: "/services/claims",
-    },
-    {
-      name: "Pre-Purchase Inspection",
-      description: "Comprehensive vehicle inspection before buying",
-      icon: "🔍",
-      href: "/services/inspection",
+      name: "Quality Assurance",
+      description: "Ensuring high standards in repairs and assessments",
+      icon: "✓",
+      href: "/services/quality-assurance",
     },
   ];
 
@@ -188,7 +182,7 @@ export default function Navbar() {
 
                 {/* Mega Menu Dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] transition-all duration-200 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[520px] transition-all duration-200 ${
                     activeDropdown === "services"
                       ? "opacity-100 translate-y-0 visible"
                       : "opacity-0 -translate-y-2 invisible pointer-events-none"
@@ -205,26 +199,25 @@ export default function Navbar() {
                       </p>
                     </div>
 
-                    {/* Services Grid - 2x2 */}
-                    <div className="grid grid-cols-2 gap-px bg-border">
+                    {/* Services Grid - Single Column */}
+                    <div className="divide-y divide-border">
                       {services.map((service, idx) => (
                         <Link
                           key={idx}
                           href={service.href}
-                          className="bg-white p-6 hover:bg-soft transition-all duration-200 group"
+                          onClick={() => setActiveDropdown(null)}
+                          className="bg-white p-6 hover:bg-soft transition-all duration-200 group flex items-start gap-4"
                         >
-                          <div className="flex items-start gap-4">
-                            <div className="text-4xl group-hover:scale-110 transition-transform duration-200">
-                              {service.icon}
-                            </div>
-                            <div className="flex-1">
-                              <h4 className="font-semibold text-primary text-base mb-1 group-hover:text-primary-dark transition-colors">
-                                {service.name}
-                              </h4>
-                              <p className="text-sm text-text-muted leading-relaxed">
-                                {service.description}
-                              </p>
-                            </div>
+                          <div className="text-4xl group-hover:scale-110 transition-transform duration-200">
+                            {service.icon}
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-primary text-base mb-1 group-hover:text-primary-dark transition-colors">
+                              {service.name}
+                            </h4>
+                            <p className="text-sm text-text-muted leading-relaxed">
+                              {service.description}
+                            </p>
                           </div>
                         </Link>
                       ))}
@@ -234,6 +227,7 @@ export default function Navbar() {
                     <div className="bg-surface px-6 py-4 border-t border-border">
                       <Link
                         href="/services"
+                        onClick={() => setActiveDropdown(null)}
                         className="text-sm font-medium text-primary hover:text-primary-dark inline-flex items-center gap-1 group"
                       >
                         View All Services
@@ -305,7 +299,7 @@ export default function Navbar() {
             >
               <div className="relative w-10 h-10">
                 <Image
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="Lina Motors Logo"
                   fill
                   className="object-contain"
