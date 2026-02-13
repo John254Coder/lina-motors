@@ -4,7 +4,7 @@ import React from "react";
 
 interface ServiceLayoutProps {
   title: string;
-  description: string;
+  description: React.ReactNode;
   heroImage: string;
   heroAlt: string;
   children: React.ReactNode;
@@ -28,7 +28,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
   return (
     <main>
       {/* ================= HERO ================= */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <Image
           src={heroImage}
           alt={heroAlt}
@@ -47,9 +47,9 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-2xl text-white">
               <h1 className="text-white mb-6">{title}</h1>
-              <p className="text-lg text-white/90 leading-relaxed">
+              <div className="text-lg text-white/90 leading-relaxed">
                 {description}
-              </p>
+              </div>
             </div>
           </div>
         </div>

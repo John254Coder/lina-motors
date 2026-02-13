@@ -14,7 +14,7 @@ const ContactPage = () => {
       {/* ================= HERO ================= */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <Image
-          src="/images/contact-hero.webp"
+          src="/images/contact-us.webp"
           alt="Contact Lina Motor Assessors & Valuers"
           fill
           priority

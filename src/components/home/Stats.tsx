@@ -63,7 +63,7 @@ const Statistics: React.FC = () => {
   return (
     <section
       ref={statsRef}
-      className="py-20 bg-gradient-to-br from-soft via-white to-surface"
+      className="py-20 bg-gradient-to-br from-[var(--color-soft)] via-[var(--color-background)] to-[var(--color-surface)]"
       aria-labelledby="stats-heading"
     >
       <div className="container mx-auto px-6">
